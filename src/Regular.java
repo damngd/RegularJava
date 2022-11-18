@@ -17,7 +17,13 @@ public class Regular {
     }
 
     boolean URL(String list){
-        Pattern pattern = Pattern.compile("^(https?\\:\\/\\/)?(\\w+\\.)*[0-9A-Za-z][0-9A-Za-z]+\\.\\w{1,3}(\\: \\d+)?((\\/\\w+)+\\.\\w+)?(\\?\\w+=\\w+(&\\w+=\\w+)*)?(\\# \\w+)?$");
+        Pattern pattern = Pattern.compile("^(https?\\:\\/\\/)?(\\w+\\.)*[0-9A-Za-z][0-9A-Za-z]+\\.\\w{1,3}(\\:\\d+)?((\\/\\w+)+\\.\\w+)?(\\?\\w+=\\w+(&\\w+=\\w+)*)?(\\#\\w+)?$");
+        Matcher m = pattern.matcher(list);
+        return m.matches();
+    }
+
+    boolean Password(String list){
+        Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[0-9A-Za-z_]{8,}");
         Matcher m = pattern.matcher(list);
         return m.matches();
     }

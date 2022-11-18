@@ -1,6 +1,7 @@
 
 
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -64,6 +65,22 @@ public class RegularTest {
         assertFalse(regular.URL("http://-asda.com"));
         assertFalse(regular.URL("http://asd_sdas.com"));
         assertFalse(regular.URL("http://adsa dsa.com"));
+    }
+    @Test
+    public void password(){
+        assertTrue(regular.Password("C00l_Pass"));
+        assertTrue(regular.Password("Jxtymckjyj66"));
+        assertTrue(regular.Password("Gfhjkm1337very"));
+        assertTrue(regular.Password("rhenjqxtk77A"));
+        assertTrue(regular.Password("Xtk_Ns099_a"));
+        assertTrue(regular.Password("YthtfkmyjJxtymCkjyj963"));
+
+        assertFalse(regular.Password("C00l_ps"));
+        assertFalse(regular.Password("C00L_PASS"));
+        assertFalse(regular.Password("ghfhf4567434789"));
+        assertFalse(regular.Password("VeryEasy"));
+        assertFalse(regular.Password("C00L_PASS876548"));
+        assertFalse(regular.Password("chelti..'!!!!!"));
     }
 
 
