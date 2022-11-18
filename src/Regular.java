@@ -9,4 +9,11 @@ public class Regular {
         return m.matches();
     }
 
+    boolean ip_Check(String list)
+    {
+        Pattern pattern = Pattern.compile("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
+        Matcher m = pattern.matcher(list);
+        return m.matches();
+    }
+
 }
