@@ -1,5 +1,6 @@
 
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,6 +47,23 @@ public class RegularTest {
         assertFalse(regular.ip_Check("127.1.10003.255"));
         assertFalse(regular.ip_Check("127.1.1.2532"));
         assertFalse(regular.ip_Check("1290.12.12.255"));
+    }
+
+    @Test
+    public void url(){
+        assertTrue(regular.URL("http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument"));
+        assertTrue(regular.URL("http://www.example.com"));
+        assertTrue(regular.URL("http://example.com"));
+        assertTrue(regular.URL("http://example.com:8080"));
+        assertTrue(regular.URL("http://example.com"));
+        assertTrue(regular.URL("https://developer.mozilla.org/ru/search.jpg?q=URL"));
+
+        assertFalse(regular.URL("Just text"));
+        assertFalse(regular.URL("http://a.com"));
+        assertFalse(regular.URL("http://aads-.com"));
+        assertFalse(regular.URL("http://-asda.com"));
+        assertFalse(regular.URL("http://asd_sdas.com"));
+        assertFalse(regular.URL("http://adsa dsa.com"));
     }
 
 
